@@ -39,9 +39,6 @@ export default function Navbar() {
         {[
           ['/', 'Home'],
           ['/about', 'About Us'],
-          ['/strategy', 'Investment Strategy'],
-          ['/research', 'Equity Research'],
-          ['/progress-letters', 'Progress Letters'],
           ['/portfolio-analytics', 'Portfolio'],
           ['/contact', 'Contact Us'],
         ].map(([href, label]) => (

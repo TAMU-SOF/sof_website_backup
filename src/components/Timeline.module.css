@@ -1,0 +1,135 @@
+/* wrapper uses whatever background you already set on the parent section */
+.wrapper {
+  width: 100%;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  max-width: 85rem;
+  margin: 0 auto;
+  padding: 0 1rem; /* background/padding controlled by your parent section */
+}
+
+.left {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+  top: 7rem; /* clears your navbar */
+  height: calc(100vh - 7rem);
+  min-height: 520px;
+}
+
+.line {
+  position: absolute;
+  left: 18px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #500000, #6a0f0f, #500000);
+  border-radius: 9999px;
+  transform-origin: top;
+  opacity: 0.95;
+  z-index: 1;
+}
+
+.dot {
+  position: absolute;
+  left: 8px; /* centers over the line */
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: #500000; /* maroon */
+  box-shadow: 0 6px 18px rgba(80, 0, 0, 0.45);
+  z-index: 2; /* ensure above the line */
+}
+
+/* Center the titles vertically with even spacing */
+.titles {
+  position: absolute;
+  left: 48px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* center the list vertically */
+  gap: 2.25rem;              /* even spacing between items */
+  padding: 0.25rem 0;
+}
+
+.title {
+  font-weight: 800;
+  color: #3a0000; /* maroon shade for text */
+  line-height: 1.2;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* slightly tighter so above-the-fold shows immediately */
+}
+
+.heading {
+  font-size: clamp(1.75rem, 2vw + 1rem, 2.5rem);
+  font-weight: 800;
+  color: #3a0000;
+  margin-bottom: 0.5rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 30px rgba(80, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.mediaWrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #f3f4f6;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.content {
+  padding: 1.1rem 1.25rem 1.35rem;
+}
+
+.content h3 {
+  margin: 0 0 0.4rem 0;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #3a0000;
+}
+
+.content p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.65;
+}
+
+/* Responsive */
+@media (max-width: 920px) {
+  .inner {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+  .left {
+    display: none; /* hide rail on small screens */
+  }
+}

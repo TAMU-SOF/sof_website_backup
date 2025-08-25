@@ -30,12 +30,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  color: #10b981;
+  color: #ff0000;
   animation: glow-flicker 8s infinite ease-in-out;
 }
 
 .glowOutline {
-  color: #082C16;
+  color: #500000;
 }
 
 @keyframes glow-flicker {
