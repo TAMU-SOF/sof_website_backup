@@ -1,0 +1,35 @@
+.rotatingContainer {
+  display: inline-block;
+  overflow: hidden;
+  height: 1.3em;
+  width: max-content;
+  vertical-align: bottom;
+  position: relative;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.word {
+  display: block;
+  height: 1.3em;
+  line-height: 1.3em;
+  font-weight: bold;
+  font-size: inherit;
+
+  background: linear-gradient(90deg, #7b2cbf, #9d174d, #500000, #9d174d);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradientMove 5s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

@@ -1,0 +1,52 @@
+.statContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;        /* less spacing between boxes */
+  margin-top: 4rem;   /* less top margin */
+  padding: 0 1rem;
+}
+
+.statBox {
+  background: #ffffff;
+  padding: 2rem;      /* reduced from 3rem */
+  margin-bottom: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid #50000021;
+  box-shadow: 0 3px 15px rgba(80, 0, 0, 0.15);
+  min-width: 180px;   /* reduced from 240px */
+  min-height: 180px;  /* reduced from 250px */
+  flex: 1 1 180px;    /* allows more boxes per row */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.statValue {
+  font-size: 3rem;    /* reduced from 5rem */
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.animatedText {
+  background: linear-gradient(90deg, #7b2cbf, #9d174d, #500000, #9d174d);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradientMove 5s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.statLabel {
+  font-size: 1.2rem;   /* reduced from 1.5rem */
+  color: #4b5563;
+  font-weight: 600;
+}
