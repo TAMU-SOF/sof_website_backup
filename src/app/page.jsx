@@ -70,17 +70,17 @@ export default function Home() {
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-[#800000] to-[#500000] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="inline-flex items-center justify-center h-14 px-8 rounded-2xl font-semibold text-white shadow-lg hover:shadow-xl bg-gradient-to-r from-[#800000] to-[#500000] transition-all duration-300"
                 >
                   Apply to SOF
                 </motion.button>
               </Link>
 
-              <Link href="/research">
+              <Link href="https://forms.gle/wdBp2GYrpD3LzHop6">
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-[#500000] text-[#500000] font-semibold rounded-xl hover:bg-[#fdf5f5] transition-all duration-300"
+                  className="inline-flex items-center justify-center h-14 px-8 rounded-2xl font-semibold text-[#500000] border-2 border-[#500000] hover:bg-[#fdf5f5] transition-all duration-300"
                 >
                   Apply to Maroon Fund
                 </motion.button>
