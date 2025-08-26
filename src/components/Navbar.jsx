@@ -38,8 +38,6 @@ export default function Navbar() {
       <div className="hidden md:flex space-x-8 text-base font-medium">
         {[
           ['/', 'Home'],
-          ['/about', 'About Us'],
-          ['/portfolio-analytics', 'Portfolio'],
           ['/contact', 'Contact Us'],
         ].map(([href, label]) => (
           <motion.a

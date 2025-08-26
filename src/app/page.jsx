@@ -66,26 +66,32 @@ export default function Home() {
             </p>
 
             <div className="mt-1 flex flex-col sm:flex-row gap-4">
-              <Link href="https://app.scholarsoffinance.org/application/?universityId=652593b1-e24e-44a3-a896-29cf08961604">
-                <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-[#800000] to-[#500000] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  Apply to SOF
-                </motion.button>
-              </Link>
+            {/* Apply to SOF */}
+            <Link href="https://app.scholarsoffinance.org/application/?universityId=652593b1-e24e-44a3-a896-29cf08961604">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-gradient-to-r from-[#800000] to-[#500000] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Apply to SOF
+              </motion.button>
+            </Link>
 
-              <Link href="/research">
-                <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-[#500000] text-[#500000] font-semibold rounded-xl hover:bg-[#fdf5f5] transition-all duration-300"
-                >
-                  Apply to Maroon Fund
-                </motion.button>
-              </Link>
-            </div>
+            {/* Apply to Maroon Fund */}
+            <a
+              href="https://forms.gle/P6sTd8miCkyHdPYR8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 border-2 border-[#500000] text-[#500000] font-semibold rounded-xl hover:bg-[#fdf5f5] transition-all duration-300"
+              >
+                Apply to Maroon Fund
+              </motion.button>
+            </a>
+          </div>
           </motion.div>
         </div>
 
@@ -169,25 +175,25 @@ export default function Home() {
                   title: 'Speaker Series',
                   description:
                     'The SOF Speaker Series aims to provide members with valuable insights, inspiration, and knowledge from industry professionals and Texas A&M Alumni. These sessions help members understand the practical applications of finance principles, gain career advice, and learn about current trends and challenges in the finance industry.',
-                  image: '/SS.JPG',
+                  image: '/SS.jpg',
                 },
                 {
                   title: 'LDP',
                   description:
                     'The Leadership Development Program (LDP) is an 8-week program designed to equip members with the principles and skills to be ethical and effective leaders. The program is rooted in the 12 principles and 4 SOF values: Integrity, Humility, Compassion, and Excellence.',
-                  image: '/LDP.JPG',
+                  image: '/LDP.jpg',
                 },
                 {
                   title: 'Socials',
                   description:
                     'SOF TAMU will host a few socials throughout the year. In the fall semester, look out for tailgates and crawfish boil in the spring. We also host other fun events every month!',
-                  image: '/Socials.JPG',
+                  image: '/Socials.jpg',
                 },
                 {
                   title: 'Stock Pitch Comp',
                   description:
                     'Every year, SOF and AIC host the annual TAMU stock pitch competition. Texas A&M students will be able to pitch a stock they researched to industry professionals for cash prizes.',
-                  image: '/SPC.PNG',
+                  image: '/SPC.png',
                 },
               ]}
             />
