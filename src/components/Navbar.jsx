@@ -4,14 +4,14 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)   // bg swap
-  const [hide,     setHide]     = useState(false)   // slide-away
+  const [scrolled, setScrolled] = useState(false)
+  const [hide, setHide] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY
-      setScrolled(y > 50)        // 1️⃣ background / shadow trigger
-      setHide(   y > 50)         // 2️⃣ keep your slide logic – tweak if needed
+      setScrolled(y > 50)
+      setHide(y > 50)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -25,8 +25,8 @@ export default function Navbar() {
         'fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-3',
         'transition-colors duration-300 backdrop-blur-md',
         scrolled
-          ? 'bg-white/80 shadow-md text-emerald-900'
-          : 'bg-transparent text-emerald-900'
+          ? 'bg-white/80 shadow-md text-[#500000]'     // maroon when scrolled
+          : 'bg-transparent text-[#500000]'            // maroon at top
       ].join(' ')}
     >
       {/* ---- Logo ---- */}
@@ -46,12 +46,12 @@ export default function Navbar() {
             key={href}
             href={href}
             whileHover={{ y: -2 }}
-            className="relative group hover:text-emerald-600 transition-colors duration-300"
+            className="relative group hover:text-[#800000] transition-colors duration-300"
           >
             {label}
             {/* animated underline */}
             <span
-              className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 transition-all duration-300 group-hover:w-full"
+              className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#800000] to-[#500000] transition-all duration-300 group-hover:w-full"
             />
           </motion.a>
         ))}
@@ -59,3 +59,4 @@ export default function Navbar() {
     </motion.nav>
   )
 }
+

@@ -44,9 +44,9 @@ export default function SleekFAQSection() {
           className="text-center mb-8"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Frequently Asked Questions
+            Resources
           </h2>
-          <div className="w-20 h-1 bg-emerald-600 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-[#800000] to-[#500000] mx-auto rounded-full"></div>
         </motion.div>
 
         {/* FAQ Items */}

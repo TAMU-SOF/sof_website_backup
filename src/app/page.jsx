@@ -20,17 +20,17 @@ export default function Home() {
         <motion.div
           className="absolute top-20 right-10 w-72 h-72 bg-[#f5e6e6] rounded-full opacity-10"
           animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
           className="absolute bottom-40 left-10 w-48 h-48 bg-[#f0dcdc] rounded-full opacity-15"
           animate={{ y: [0, 15, 0], x: [0, 10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
         />
         <motion.div
           className="absolute top-1/2 right-20 w-32 h-32 bg-[#ebcfcf] rounded-full opacity-10"
           animate={{ scale: [1, 1.1, 1], rotate: [0, -10, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
       </div>
 
@@ -41,87 +41,89 @@ export default function Home() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="relative z-10"
       >
-
-        {/* Hero Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between max-w-[85rem] mx-auto p-10 min-h-[80vh]">
-
-          {/* Left Text */}
-          <div className="md:w-2/3 w-full p-6 md:p-10 -mt-5">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+      {/* HERO */}
+      <div className="flex flex-col md:flex-row items-center justify-between max-w-[85rem] mx-auto px-10 py-16 min-h-[85vh] gap-10">
+        {/* Left */}
+        <div className="md:w-1/2 w-full">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col space-y-6 md:space-y-7"
+          >
+            <h1
+              className="text-5xl md:text-6xl font-extrabold leading-[1.1]
+              bg-gradient-to-r from-[#3a0000] via-[#800000] to-[#500000]
+              bg-clip-text text-transparent animate-gradient"
             >
-              <h1
-                className="text-5xl font-bold mb-6
-                bg-gradient-to-r from-[#3a0000] via-[#800000] to-[#500000]
-                bg-clip-text text-transparent animate-gradient leading-tight"
-              >
-                Texas A&amp;M Scholars of Finance
-              </h1>
+              Texas A&amp;M Scholars of Finance
+            </h1>
 
-              {/* Rotating word: baseline-aligned & evenly spaced */}
-              <p className="text-[32px] leading-tight text-gray-600 mb-8">
-                Shaping <RotatingWords heightEm={1} /><br />
-                in student leaders <br /> 
-                across Texas A&M
-              </p>
+            <p className="text-[28px] md:text-[32px] leading-[1.35] text-black font-semibold tracking-normal max-w-[28ch]">
+              Shaping <RotatingWords heightEm={1} /><br />
+              in student leaders<br />
+              across Texas A&amp;M
+            </p>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="https://app.scholarsoffinance.org/application/?universityId=652593b1-e24e-44a3-a896-29cf08961604">
-                  <motion.button
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-[#800000] to-[#500000] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    Apply to SOF
-                  </motion.button>
-                </Link>
+            <div className="mt-1 flex flex-col sm:flex-row gap-4">
+              <Link href="https://app.scholarsoffinance.org/application/?universityId=652593b1-e24e-44a3-a896-29cf08961604">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-gradient-to-r from-[#800000] to-[#500000] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Apply to SOF
+                </motion.button>
+              </Link>
 
-                <Link href="/research">
-                  <motion.button
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 border-2 border-[#500000] text-[#500000] font-semibold rounded-xl hover:bg-[#fdf5f5] transition-all duration-300"
-                  >
-                    Apply to Maroon Fund
-                  </motion.button>
-                </Link>
+              <Link href="/research">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 border-2 border-[#500000] text-[#500000] font-semibold rounded-xl hover:bg-[#fdf5f5] transition-all duration-300"
+                >
+                  Apply to Maroon Fund
+                </motion.button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Right */}
+        <div className="md:w-1/2 w-full">
+          <motion.div
+            initial={{ opacity: 0, x: 50, scale: 0.98 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="relative"
+          >
+            {/* RESET any internal top spacing from PictureSlider */}
+            <div className="p-0 m-0 [&>*]:mt-0 [&_*]:mt-0 [&>*]:pt-0 [&_*]:pt-0 -translate-y-1">
+              <PictureSlider />
+            </div>
+
+            {/* Floating stats card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+              className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100"
+            >
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-[#f5e6e6] rounded-full flex items-center justify-center">
+                  <Users className="w-4 h-4 text-[#500000]" />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500">Organization</p>
+                  <p className="text-sm font-bold text-gray-800">Student led Finance Org</p>
+                </div>
               </div>
             </motion.div>
-          </div>
-
-          {/* Right Image with enhanced styling */}
-          <div className="md:w-8/12 w-full flex relative p-6 md:p-10 -mt-14">
-            <motion.div
-              initial={{ opacity: 0, x: 50, scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="relative"
-            >
-              <PictureSlider />
-
-              {/* Floating stats cards */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100"
-              >
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-[#f5e6e6] rounded-full flex items-center justify-center">
-                    <Users className="w-4 h-4 text-[#500000]" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-500">Organization</p>
-                    <p className="text-sm font-bold text-gray-800">Student Led Finance Org</p>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
+          </motion.div>
         </div>
+      </div>
+
+
 
         {/* Stats Section */}
         <div className="pb-10">
@@ -137,7 +139,7 @@ export default function Home() {
 
         {/* Programs & Events Timeline Section */}
         <div className="bg-gray-50 py-16 relative">
-          {/* Background pattern (now maroon) */}
+          {/* Background pattern (maroon) */}
           <div className="absolute inset-0 opacity-5">
             <div
               className="absolute inset-0"
@@ -155,7 +157,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="mb-16 text-center"
             >
-              <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-emerald-800 to-emerald-600 bg-clip-text text-transparent">
+              <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#800000] to-[#500000] bg-clip-text text-transparent">
                 Programs &amp; Events
               </h2>
             </motion.div>
