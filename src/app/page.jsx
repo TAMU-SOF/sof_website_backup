@@ -70,17 +70,17 @@ export default function Home() {
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center h-14 px-8 rounded-2xl font-semibold text-white shadow-lg hover:shadow-xl bg-gradient-to-r from-[#800000] to-[#500000] transition-all duration-300"
+                  className="px-8 py-4 bg-gradient-to-r from-[#800000] to-[#500000] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Apply to SOF
                 </motion.button>
               </Link>
 
-              <Link href="https://forms.gle/wdBp2GYrpD3LzHop6">
+              <Link href="/research">
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center h-14 px-8 rounded-2xl font-semibold text-[#500000] border-2 border-[#500000] hover:bg-[#fdf5f5] transition-all duration-300"
+                  className="px-8 py-4 border-2 border-[#500000] text-[#500000] font-semibold rounded-xl hover:bg-[#fdf5f5] transition-all duration-300"
                 >
                   Apply to Maroon Fund
                 </motion.button>
@@ -169,25 +169,25 @@ export default function Home() {
                   title: 'Speaker Series',
                   description:
                     'The SOF Speaker Series aims to provide members with valuable insights, inspiration, and knowledge from industry professionals and Texas A&M Alumni. These sessions help members understand the practical applications of finance principles, gain career advice, and learn about current trends and challenges in the finance industry.',
-                  image: '/SS.JPG',
+                  image: '/SS.jpg',
                 },
                 {
                   title: 'LDP',
                   description:
                     'The Leadership Development Program (LDP) is an 8-week program designed to equip members with the principles and skills to be ethical and effective leaders. The program is rooted in the 12 principles and 4 SOF values: Integrity, Humility, Compassion, and Excellence.',
-                  image: '/LDP.JPG',
+                  image: '/LDP.jpg',
                 },
                 {
                   title: 'Socials',
                   description:
                     'SOF TAMU will host a few socials throughout the year. In the fall semester, look out for tailgates and crawfish boil in the spring. We also host other fun events every month!',
-                  image: '/Socials.JPG',
+                  image: '/Socials.jpg',
                 },
                 {
                   title: 'Stock Pitch Comp',
                   description:
                     'Every year, SOF and AIC host the annual TAMU stock pitch competition. Texas A&M students will be able to pitch a stock they researched to industry professionals for cash prizes.',
-                  image: '/SPC.PNG',
+                  image: '/SPC.png',
                 },
               ]}
             />

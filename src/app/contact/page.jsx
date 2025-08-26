@@ -1,167 +1,132 @@
-'use client'
-import Navbar from '@/components/Navbar'
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+'use client';
+import Navbar from '@/components/Navbar';
+import { motion } from 'framer-motion';
+
+const container = {
+  hidden: { opacity: 0, y: 12 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: 'easeOut', when: 'beforeChildren', staggerChildren: 0.08 }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } }
+};
 
 export default function ContactUs() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    country: 'United States',
-    phone: '',
-    message: ''
-  })
-
-  const [submitting, setSubmitting] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState(false)
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    if (!formData.firstName || !formData.email || !formData.message) {
-      setError(true)
-      return
-    }
-
-    setSubmitting(true)
-    setError(false)
-
-    try {
-      const response = await fetch("/api/sheet/contact", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      })
-
-      if (response.ok) {
-        setSuccess(true)
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          country: 'United States',
-          phone: '',
-          message: ''
-        })
-      } else {
-        setError(true)
-      }
-    } catch {
-      setError(true)
-    }
-
-    setSubmitting(false)
-  }
-
   return (
-    <main className="min-h-screen bg-white text-black pt-28">
+    <main className="min-h-screen bg-white text-black pt-24">
       <Navbar />
 
-      {/* Page fade-in */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className="max-w-7xl mx-auto p-10 flex flex-col md:flex-row gap-16"
+      <motion.section
+        className="max-w-6xl mx-auto px-6 py-12"
+        variants={container}
+        initial="hidden"
+        animate="show"
       >
-
-        {/* Left Form Section */}
-        <motion.div 
-          className="md:w-2/3"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+        {/* Title */}
+        <motion.h1
+          className="text-4xl md:text-5xl font-extrabold text-center mb-4"
+          variants={item}
         >
-          <h1 className="text-4xl font-bold mb-4" style={{ color: '#082C16' }}>
-            Contact Us
-          </h1>
-          <p className="text-lg mb-8">
-            If you're interested in learning more about B.D. Sterling or starting a conversation, we’d love to hear from you.
-          </p>
+          Contact Us
+        </motion.h1>
 
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="flex gap-4">
-              <div className="w-1/2">
-                <label className="block text-sm font-medium mb-1">First Name (required)</label>
-                <input type="text" name="firstName" value={formData.firstName} onChange={handleChange}
-                  className="w-full border border-gray-300 p-2 rounded" required />
-              </div>
-              <div className="w-1/2">
-                <label className="block text-sm font-medium mb-1">Last Name</label>
-                <input type="text" name="lastName" value={formData.lastName} onChange={handleChange}
-                  className="w-full border border-gray-300 p-2 rounded" />
-              </div>
-            </div>
+        <motion.p
+          className="text-center text-lg text-gray-600 max-w-2xl mx-auto"
+          variants={item}
+        >
+          Connect with us via GroupMe, Instagram, or email. We’d love to hear from you.
+        </motion.p>
 
-            <div>
-              <label className="block text-sm font-medium mb-1">Email Address (required)</label>
-              <input type="email" name="email" value={formData.email} onChange={handleChange}
-                className="w-full border border-gray-300 p-2 rounded" required />
-            </div>
-
-            <div className="flex gap-4">
-              <div className="w-1/3">
-                <label className="block text-sm font-medium mb-1">Country</label>
-                <select name="country" value={formData.country} onChange={handleChange}
-                  className="w-full border border-gray-300 p-2 rounded">
-                  <option>United States</option>
-                  <option>Canada</option>
-                  <option>Other</option>
-                </select>
+        {/* Contact Cards */}
+        <motion.div
+          className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={container}
+        >
+          {/* GroupMe */}
+          <motion.a
+            href="https://groupme.com/join_group/105285993/Dpa3PTgJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition"
+            variants={item}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.995 }}
+          >
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 rounded-xl bg-blue-50 flex items-center justify-center text-2xl">
+                💬
               </div>
-              <div className="w-2/3">
-                <label className="block text-sm font-medium mb-1">Phone Number</label>
-                <input type="tel" name="phone" value={formData.phone} onChange={handleChange}
-                  className="w-full border border-gray-300 p-2 rounded" />
+              <div>
+                <h3 className="text-xl font-semibold">GroupMe</h3>
+                <p className="text-gray-600">Join our community chat</p>
               </div>
             </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-1">Message (required)</label>
-              <textarea name="message" value={formData.message} onChange={handleChange}
-                className="w-full border border-gray-300 p-2 rounded h-32" required></textarea>
+            <div className="mt-4 inline-flex items-center gap-2 text-blue-600">
+              Join Group <span className="transition group-hover:translate-x-0.5">→</span>
             </div>
+          </motion.a>
 
-            <button 
-              type="submit" 
-              className="bg-[#0E472B] hover:bg-[#0C3E26] text-white font-semibold py-2 px-6 rounded-full transition duration-200 transform hover:scale-105"
-              disabled={submitting}
-            >
-              {submitting ? "Submitting..." : "SUBMIT"}
-            </button>
+          {/* Instagram */}
+          <motion.a
+            href="https://instagram.com/sof.tamu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition"
+            variants={item}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.995 }}
+          >
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 rounded-xl bg-pink-50 flex items-center justify-center text-2xl">
+                📸
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold">Instagram</h3>
+                <p className="text-gray-600">@sof.tamu</p>
+              </div>
+            </div>
+            <div className="mt-4 inline-flex items-center gap-2 text-pink-600">
+              View Profile <span className="transition group-hover:translate-x-0.5">→</span>
+            </div>
+          </motion.a>
 
-            {success && <p className="text-green-600 font-semibold mt-4">Thank you! Your message has been sent.</p>}
-            {error && <p className="text-red-600 font-semibold mt-4">Please fill out all required fields.</p>}
-          </form>
+          {/* Email */}
+          <motion.a
+            href="mailto:aggiesof@gmail.com"
+            className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition"
+            variants={item}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.995 }}
+          >
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 rounded-xl bg-emerald-50 flex items-center justify-center text-2xl">
+                ✉️
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold">Email</h3>
+                <p className="text-gray-600">aggiesof@gmail.com</p>
+              </div>
+            </div>
+            <div className="mt-4 inline-flex items-center gap-2 text-emerald-700">
+              Send Email <span className="transition group-hover:translate-x-0.5">→</span>
+            </div>
+          </motion.a>
         </motion.div>
 
-        {/* Right Contact Info */}
-        <motion.div 
-          className="md:w-1/3"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <h2 className="text-2xl font-bold mb-4" style={{ color: '#082C16' }}>
-            Personal Contacts
-          </h2>
-          <p className="text-lg leading-relaxed">
-            Bhuvan Siddaveerappa<br />
-            Dhruv Datta<br /><br />
-            bdsterlingfund@gmail.com
-          </p>
+        {/* Names / Chapter */}
+        <motion.div className="mt-12 text-center text-gray-700" variants={item}>
+          <p>Texas A&amp;M Scholars of Finance Chapter</p>
         </motion.div>
+      </motion.section>
 
-      </motion.div>
+      <footer className="py-10 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} Texas A&amp;M Scholars of Finance. All rights reserved.
+      </footer>
     </main>
-  )
+  );
 }
